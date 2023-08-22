@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('front.home');
+    return view('layouts.admin');
 });
 
 Auth::routes();
