@@ -20,7 +20,6 @@ class languageController extends Controller
     }
     public function store(LanguageRequest $request)
     {
-        // return $request->all();
         try {
             Language::create($request->except(['_token']));
             return redirect()->route('admin.langs')->with(['success' => 'adding is true']);
