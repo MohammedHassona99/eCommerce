@@ -9,7 +9,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.languages') }}"> أللغات </a>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.langs') }}"> أللغات </a>
                                 </li>
                                 <li class="breadcrumb-item active">تعديل لغة
                                 </li>
@@ -25,7 +25,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> إضافة لغة </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> تعديل لغة </h4>
                                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
@@ -40,7 +40,7 @@
                                 @include('admin.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{ route('admin.languages.update', $language->id) }}"
+                                        <form class="form" action="{{ route('admin.update', $language->id) }}"
                                             method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
@@ -71,8 +71,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-
 
                                                 <div class="row">
 

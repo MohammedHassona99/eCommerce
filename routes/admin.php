@@ -13,7 +13,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/', [languageController::class, 'all'])->name('admin.langs');
         Route::get('/create', [languageController::class, 'create'])->name('admin.lang.create');
         Route::post('/store', [languageController::class, 'store'])->name('admin.lang.store');
-        // Route::get('/edit{id}', [languageController::class, 'all'])->name('admin.edit');
+        Route::get('/edit/{id}', [languageController::class, 'edit'])->name('admin.edit');
+        Route::post('/update/{id}', [languageController::class, 'update'])->name('admin.update');
+        Route::get('/delete/{id}', [languageController::class, 'destroy'])->name('admin.delete');
     });
 });
 Route::group(['middleware' => 'guest:admin'], function () {

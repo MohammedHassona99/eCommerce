@@ -60,25 +60,19 @@
                                                             <td>{{ $language->name }}</td>
                                                             <td>{{ $language->abbr }}</td>
                                                             <td>{{ $language->direction }}</td>
-                                                            <td>{{ $language->active }}</td>
+                                                            <td>{{ $language->getActive() }}</td>
                                                             <td>
                                                                 <div class="btn-group" role="group"
                                                                     aria-label="Basic example">
-                                                                    <a href="{{-- route('admin.languages.edit', $language->id) --}}"
+                                                                    <a href="{{ route('admin.edit', $language->id) }}"
                                                                         class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
-
-
-                                                                    <a href="{{-- route('admin.languages.delete', $language->id) --}}"
+                                                                    <a href="{{ route('admin.delete', $language->id) }}"
                                                                         class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
-
-
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                     @endforeach
                                                 @endisset
-
-
                                             </tbody>
                                         </table>
                                         <div class="justify-content-center d-flex">
