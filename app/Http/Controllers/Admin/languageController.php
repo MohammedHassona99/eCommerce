@@ -10,7 +10,7 @@ class languageController extends Controller
 {
     public function all()
     {
-        $languages = Language::select()->paginate(PAGINATION);
+        $languages = Language::selection()->paginate(PAGINATION);
         return view('admin.languages.index', compact('languages'));
     }
     public function create()
@@ -42,6 +42,9 @@ class languageController extends Controller
             if (!$language) {
                 return redirect()->route('admin.edit', $id)->with(['error' => 'this language does not existing']);
             }
+            if (!$request->has('active')) {
+                $request->request->add(['active' => 0]);
+            }
             $language->update($request->except('_token'));
             return redirect()->route('admin.langs')->with(['success' => 'updating is true']);
         } catch (\Exception $ex) {
@@ -51,7 +54,6 @@ class languageController extends Controller
     public function destroy($id)
     {
         try {
-
             $language = Language::find($id);
             if (!$language) {
                 return redirect()->route('admin.langs', $id)->with(['error' => 'this language does not existing']);
